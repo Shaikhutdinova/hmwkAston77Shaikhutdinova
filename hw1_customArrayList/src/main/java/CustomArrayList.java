@@ -1,4 +1,4 @@
-package main.java;
+package main.java.hw1_customArrayList.src.main.java;
 
 import java.io.Serializable;
 import java.util.*;
@@ -154,5 +154,17 @@ public class CustomArrayList<E extends Comparable<E>> implements Cloneable, Seri
     public void sort(Comparator<? super E> c) {
         Quicksort<E> quicksort = new Quicksort<>();
         quicksort.sort(elementData, 0, size - 1, c);
+    }
+
+    @Override
+    public String toString() {
+        if (elementData == null) return null;
+        if (size < 1) return "";
+        StringBuilder sb = new StringBuilder(elementData[0] + " ");
+        for (int i = 1; i < size - 1; i++) {
+            sb.append(elementData[i] + " ");
+        }
+        sb.append(elementData[size - 1]);
+        return sb.toString();
     }
 }
